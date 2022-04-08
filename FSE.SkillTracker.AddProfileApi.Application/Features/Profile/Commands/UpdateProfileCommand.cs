@@ -18,17 +18,17 @@ namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
             private readonly ICosmosDbService _cosmosDbService;
             private readonly IMapper _mapper;
 
-            public UpdateProfileCommandHandler(ICosmosDbService cosmosDbService, IMapper mapper)
-            {
-                _cosmosDbService = cosmosDbService;
-                _mapper = mapper;
-            }
+            //public UpdateProfileCommandHandler(ICosmosDbService cosmosDbService, IMapper mapper)
+            //{
+            //    _cosmosDbService = cosmosDbService;
+            //    _mapper = mapper;
+            //}
 
             public async Task<Response<HttpStatusCode>> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
             {
                 var LNewGuid = Guid.NewGuid();
 
-                var statusCode = await _cosmosDbService.AddItem(LNewGuid, new Domain.Entities.Profiles
+                var statusCode = await _cosmosDbService.AddItem(LNewGuid, new Domain.Entities.Profile
                 {
                     Id = LNewGuid,
                     AssociateId = request.AssociateId,

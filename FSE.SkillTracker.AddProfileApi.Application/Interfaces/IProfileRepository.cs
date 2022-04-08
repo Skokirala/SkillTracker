@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FSE.SkillTracker.AddProfileApi.Domain.Entities;
 
 namespace FSE.SkillTracker.AddProfileApi.Application.Interfaces
 {
-    internal interface IProfileRepository
+    public interface IProfileRepository : IRepository<Profile>
     {
     }
 }
