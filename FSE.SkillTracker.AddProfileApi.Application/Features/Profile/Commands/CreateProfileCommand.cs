@@ -10,7 +10,7 @@ namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
         public string AssociateId { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public int SkillId { get; set; }
+        public Guid SkillsetId { get; set; }
         public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand, Domain.Entities.Profile>
         {
             private readonly IProfileRepository _profileRepository;
@@ -32,7 +32,7 @@ namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
                     Email = request.Email,
                     Mobile = request.Mobile,
                     Name = request.Name,
-                    SkillId = request.SkillId,
+                    SkillsetId = request.SkillsetId,
                     CreatedOn = DateTime.Now
                 };
 

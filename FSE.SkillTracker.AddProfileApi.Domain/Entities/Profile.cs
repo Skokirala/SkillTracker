@@ -6,7 +6,7 @@
         public string AssociateId { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public int SkillId { get; set; }
+        public Guid SkillsetId { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 

@@ -1,4 +1,5 @@
 using FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands;
+using FSE.SkillTracker.AddProfileApi.Application.Features.Skillset.Commands;
 using FSE.SkillTracker.AddProfileApi.Application.Intefaces;
 using FSE.SkillTracker.AddProfileApi.Application.Interfaces;
 using FSE.SkillTracker.AddProfileApi.Domain.Configurations;
@@ -18,9 +19,11 @@ builder.Services.AddSingleton<ICosmosContainerFactory>(new CosmosContainerFactor
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(CreateSkillsetCommand));
 builder.Services.AddMediatR(typeof(CreateProfileCommand));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped(typeof(IProfileRepository), typeof(ProfileRepository));
+builder.Services.AddScoped(typeof(ISkillsetRepository), typeof(SkillsetRepository));
 
 var app = builder.Build();
 

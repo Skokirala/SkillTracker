@@ -1,7 +1,8 @@
 ﻿namespace FSE.SkillTracker.AddProfileApi.Domain.Entities
 {
-    public class Skill : EntityKey
+    public class Skillset : EntityKey
     {
         public string Name { get; set; }
+        public int ExpertiseLevel { get; set; }
     }
 }
