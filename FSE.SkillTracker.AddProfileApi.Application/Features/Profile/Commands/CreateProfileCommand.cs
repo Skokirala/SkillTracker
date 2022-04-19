@@ -1,17 +1,18 @@
 ﻿using AutoMapper;
 using FSE.SkillTracker.AddProfileApi.Application.Interfaces;
-using MediatR;
+using FSE.SkillTracker.AddProfileApi.Application.Interfaces.Messaging;
+using FSE.SkillTracker.AddProfileApi.Domain.Entities;
 
 namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
 {
-    public class CreateProfileCommand : IRequest<Domain.Entities.Profile>
+    public class CreateProfileCommand : ICommand<Domain.Entities.Profile>
     {
         public string Name { get; set; }
         public string AssociateId { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public Guid SkillsetId { get; set; }
-        public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand, Domain.Entities.Profile>
+        public List<SkillExpertise> SkillExpertise { get; set; }
+        public class CreateProfileCommandHandler : ICommandHandler<CreateProfileCommand, Domain.Entities.Profile>
         {
             private readonly IProfileRepository _profileRepository;
             private readonly IMapper _mapper;
@@ -32,7 +33,7 @@ namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
                     Email = request.Email,
                     Mobile = request.Mobile,
                     Name = request.Name,
-                    SkillsetId = request.SkillsetId,
+                    SkillExpertise = request.SkillExpertise,
                     CreatedOn = DateTime.Now
                 };
 

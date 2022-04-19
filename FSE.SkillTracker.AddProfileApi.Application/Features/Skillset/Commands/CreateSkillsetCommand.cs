@@ -4,12 +4,12 @@ using MediatR;
 
 namespace FSE.SkillTracker.AddProfileApi.Application.Features.Skillset.Commands
 {
-    public class CreateSkillsetCommand : IRequest<Domain.Entities.Skillset>
+    public class CreateSkillsetCommand : IRequest<Domain.Entities.TechnicalSkills>
     {
         public string Name { get; set; }
         public int ExpertiseLevel { get; set; }
 
-        public class CreateSkillsetCommandHandler : IRequestHandler<CreateSkillsetCommand, Domain.Entities.Skillset>
+        public class CreateSkillsetCommandHandler : IRequestHandler<CreateSkillsetCommand, Domain.Entities.TechnicalSkills>
         {
             private readonly ISkillsetRepository _skillSetRepository;
             private readonly IMapper _mapper;
@@ -20,14 +20,13 @@ namespace FSE.SkillTracker.AddProfileApi.Application.Features.Skillset.Commands
                 _mapper = mapper;
             }
 
-            public async Task<Domain.Entities.Skillset> Handle(CreateSkillsetCommand request, CancellationToken cancellationToken)
+            public async Task<Domain.Entities.TechnicalSkills> Handle(CreateSkillsetCommand request, CancellationToken cancellationToken)
             {
                 var id = Guid.NewGuid();
-                Domain.Entities.Skillset skillSet = new Domain.Entities.Skillset
+                Domain.Entities.TechnicalSkills skillSet = new Domain.Entities.TechnicalSkills
                 {
                     Id = id,
                     Name = request.Name,
-                    ExpertiseLevel = request.ExpertiseLevel
                 };
 
                 await _skillSetRepository.AddItemAsync(skillSet);

@@ -2,7 +2,7 @@
 
 namespace FSE.SkillTracker.AddProfileApi.Application.Interfaces
 {
-    public interface ISkillsetRepository : IRepository<Skillset>
+    public interface ISkillsetRepository : IRepository<TechnicalSkills>
     {
     }
 }
