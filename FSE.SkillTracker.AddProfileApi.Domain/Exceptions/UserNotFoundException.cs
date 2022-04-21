@@ -2,7 +2,7 @@
 {
     public sealed class UserNotFoundException : NotFoundException
     {
-        public UserNotFoundException(int userId)
+        public UserNotFoundException(Guid userId)
             : base($"The user with the identifier {userId} was not found.")
         {
         }

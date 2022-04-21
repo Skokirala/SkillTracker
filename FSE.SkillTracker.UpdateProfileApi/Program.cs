@@ -1,7 +1,6 @@
 using FluentValidation.AspNetCore;
 using FSE.SkillTracker.AddProfileApi.Application.Behaviors;
 using FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands;
-using FSE.SkillTracker.AddProfileApi.Application.Features.Skillset.Commands;
 using FSE.SkillTracker.AddProfileApi.Application.Intefaces;
 using FSE.SkillTracker.AddProfileApi.Application.Interfaces;
 using FSE.SkillTracker.AddProfileApi.Application.Validators;
@@ -23,10 +22,9 @@ ConfigurationManager configuration = builder.Configuration;
 CosmosOptions cosmosConfig = configuration.GetSection(key: nameof(CosmosOptions)).Get<CosmosOptions>();
 builder.Services.AddSingleton<ICosmosContainerFactory>(new CosmosContainerFactory(cosmosConfig.EndpointUrl, cosmosConfig.AuthKey, cosmosConfig.DatabaseName, cosmosConfig.Containers));
 
-builder.Services.AddMediatR(typeof(CreateSkillsetCommand));
-builder.Services.AddMediatR(typeof(CreateProfileCommand));
+builder.Services.AddMediatR(typeof(UpdateProfileCommand));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-builder.Services.AddTransient(typeof(FSE.SkillTracker.AddProfileApi.Middleware.ExceptionHandlingMiddleware));
+builder.Services.AddTransient(typeof(FSE.SkillTracker.UpdateProfileApi.Middleware.ExceptionHandlingMiddleware));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped(typeof(IProfileRepository), typeof(ProfileRepository));
 builder.Services.AddScoped(typeof(ISkillsetRepository), typeof(SkillsetRepository));
@@ -38,15 +36,17 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //}
 
 app.UseHttpsRedirection();

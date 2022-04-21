@@ -1,43 +1,35 @@
 ﻿using AutoMapper;
-using FSE.SkillTracker.AddProfileApi.Application.Interfaces.Base;
-using FSE.SkillTracker.AddProfileApi.Application.Wrappers;
-using MediatR;
-using System.Net;
+using FSE.SkillTracker.AddProfileApi.Application.Interfaces;
+using FSE.SkillTracker.AddProfileApi.Application.Interfaces.Messaging;
+using FSE.SkillTracker.AddProfileApi.Domain.Exceptions;
 
 namespace FSE.SkillTracker.AddProfileApi.Application.Features.Profile.Commands
 {
-    public class UpdateProfileCommand : IRequest<Response<HttpStatusCode>>
+    public class UpdateProfileCommand : ICommand<Domain.Entities.Profile>
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string AssociateId { get; set; }
-        public string Mobile { get; set; }
-        public string Email { get; set; }
-        public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand, Response<HttpStatusCode>>
+        public Guid UserId { get; set; }
+        public int ExpertiseLevel { get; set; }
+        public class UpdateProfileCommandHandler : ICommandHandler<UpdateProfileCommand, Domain.Entities.Profile>
         {
-            private readonly ICosmosDbService _cosmosDbService;
+            private readonly IProfileRepository _profileRepository;
             private readonly IMapper _mapper;
 
-            //public UpdateProfileCommandHandler(ICosmosDbService cosmosDbService, IMapper mapper)
-            //{
-            //    _cosmosDbService = cosmosDbService;
-            //    _mapper = mapper;
-            //}
-
-            public async Task<Response<HttpStatusCode>> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+            public UpdateProfileCommandHandler(IProfileRepository profileRepository, IMapper mapper)
             {
-                var LNewGuid = Guid.NewGuid();
+                _profileRepository = profileRepository;
+                _mapper = mapper;
+            }
 
-                var statusCode = await _cosmosDbService.AddItem(LNewGuid, new Domain.Entities.Profile
+            public async Task<Domain.Entities.Profile> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+            {
+                var profile = await _profileRepository.GetItemAsync(request.UserId.ToString(), "Sudheer");
+                if (profile == null)
                 {
-                    Id = LNewGuid,
-                    AssociateId = request.AssociateId,
-                    Email = request.Email,
-                    Mobile = request.Mobile,
-                    Name = request.Name
-                }, cancellationToken);
+                    throw new UserNotFoundException(request.UserId);
+                }
 
-                return new Response<HttpStatusCode>(statusCode);
+                await _profileRepository.UpdateItemAsync(profile);
+                return profile;
             }
         }
     }

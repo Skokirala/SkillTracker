@@ -8,6 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["FSE.SkillTracker.AddProfileApi/FSE.SkillTracker.AddProfileApi.csproj", "FSE.SkillTracker.AddProfileApi/"]
+COPY ["FSE.SkillTracker.AddProfileApi.Infrastructure/FSE.SkillTracker.AddProfileApi.Infrastructure.csproj", "FSE.SkillTracker.AddProfileApi.Infrastructure/"]
+COPY ["FSE.SkillTracker.AddProfileApi.Application/FSE.SkillTracker.AddProfileApi.Application.csproj", "FSE.SkillTracker.AddProfileApi.Application/"]
+COPY ["FSE.SkillTracker.AddProfileApi.Domain/FSE.SkillTracker.AddProfileApi.Domain.csproj", "FSE.SkillTracker.AddProfileApi.Domain/"]
 RUN dotnet restore "FSE.SkillTracker.AddProfileApi/FSE.SkillTracker.AddProfileApi.csproj"
 COPY . .
 WORKDIR "/src/FSE.SkillTracker.AddProfileApi"

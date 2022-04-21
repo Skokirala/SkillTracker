@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.AddProfileApi", "FSE.SkillTracker.AddProfileApi\FSE.SkillTracker.AddProfileApi.csproj", "{94153544-3CEA-48D0-B510-D6C3946364C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE.SkillTracker.AddProfileApi", "FSE.SkillTracker.AddProfileApi\FSE.SkillTracker.AddProfileApi.csproj", "{94153544-3CEA-48D0-B510-D6C3946364C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F210213-DDA2-4866-B468-F58D227E6D69}"
 EndProject
@@ -13,13 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BB38A7DD-9D4B-4E4D-A77E-FC018DC336A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.AddProfileApi.Application", "FSE.SkillTracker.AddProfileApi.Application\FSE.SkillTracker.AddProfileApi.Application.csproj", "{101BB09E-F42D-4C66-8EC3-C70E9B89C6CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE.SkillTracker.AddProfileApi.Application", "FSE.SkillTracker.AddProfileApi.Application\FSE.SkillTracker.AddProfileApi.Application.csproj", "{101BB09E-F42D-4C66-8EC3-C70E9B89C6CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.AddProfileApi.Domain", "FSE.SkillTracker.AddProfileApi.Domain\FSE.SkillTracker.AddProfileApi.Domain.csproj", "{A76983FA-F1D5-4DF7-85CA-D22B981DF843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE.SkillTracker.AddProfileApi.Domain", "FSE.SkillTracker.AddProfileApi.Domain\FSE.SkillTracker.AddProfileApi.Domain.csproj", "{A76983FA-F1D5-4DF7-85CA-D22B981DF843}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.AddProfileApi.Infrastructure", "FSE.SkillTracker.AddProfileApi.Infrastructure\FSE.SkillTracker.AddProfileApi.Infrastructure.csproj", "{683E9CF9-20BD-46F2-999C-92A28ABEE72A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE.SkillTracker.AddProfileApi.Infrastructure", "FSE.SkillTracker.AddProfileApi.Infrastructure\FSE.SkillTracker.AddProfileApi.Infrastructure.csproj", "{683E9CF9-20BD-46F2-999C-92A28ABEE72A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.AddProfileApi.Infrastructure.Database", "FSE.SkillTracker.AddProfileApi.Infrastructure.Database\FSE.SkillTracker.AddProfileApi.Infrastructure.Database.csproj", "{A6EC6907-775A-47F1-861D-2241BBB89E73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSE.SkillTracker.AddProfileApi.Infrastructure.Database", "FSE.SkillTracker.AddProfileApi.Infrastructure.Database\FSE.SkillTracker.AddProfileApi.Infrastructure.Database.csproj", "{A6EC6907-775A-47F1-861D-2241BBB89E73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.UpdateProfileApi", "FSE.SkillTracker.UpdateProfileApi\FSE.SkillTracker.UpdateProfileApi.csproj", "{31A840C3-4BA7-4927-9521-9475F9EF0D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSE.SkillTracker.SearchProfileApi", "FSE.SkillTracker.SearchProfileApi\FSE.SkillTracker.SearchProfileApi.csproj", "{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,14 @@ Global
 		{A6EC6907-775A-47F1-861D-2241BBB89E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6EC6907-775A-47F1-861D-2241BBB89E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6EC6907-775A-47F1-861D-2241BBB89E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A840C3-4BA7-4927-9521-9475F9EF0D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A840C3-4BA7-4927-9521-9475F9EF0D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A840C3-4BA7-4927-9521-9475F9EF0D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A840C3-4BA7-4927-9521-9475F9EF0D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,8 @@ Global
 		{A76983FA-F1D5-4DF7-85CA-D22B981DF843} = {9F50270F-D83E-402E-83FD-C50BD61A4878}
 		{683E9CF9-20BD-46F2-999C-92A28ABEE72A} = {DA86EDC4-FDD7-4329-8C99-6DB09E263517}
 		{A6EC6907-775A-47F1-861D-2241BBB89E73} = {DA86EDC4-FDD7-4329-8C99-6DB09E263517}
+		{31A840C3-4BA7-4927-9521-9475F9EF0D3F} = {BB38A7DD-9D4B-4E4D-A77E-FC018DC336A5}
+		{FD2A9383-7938-41EC-BEB4-E2A999DDD3B7} = {BB38A7DD-9D4B-4E4D-A77E-FC018DC336A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF11CB24-0504-45F7-842A-3921BF23995F}
